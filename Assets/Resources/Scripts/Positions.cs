@@ -109,49 +109,56 @@ public sealed class Positions {
 
     #region Helper functions
     
-    public static CardPositions StringToCardPosition(string position)
+    private static int StringToCardPosition(string position)
     {
         switch (position)
         {
             case "Deck":
-                return CardPositions.Deck;
+                return (int)CardPositions.Deck;
             case "Hand1":
-                return CardPositions.Hand1;
+                return (int)CardPositions.Hand1;
             case "Hand2":
-                return CardPositions.Hand2;
+                return (int)CardPositions.Hand2;
             case "Hand3":
-                return CardPositions.Hand3;
+                return (int)CardPositions.Hand3;
             case "Hand4":
-                return CardPositions.Hand4;
+                return (int)CardPositions.Hand4;
             case "Hand5":
-                return CardPositions.Hand5;
+                return (int)CardPositions.Hand5;
             case "Hand6":
-                return CardPositions.Hand6;
+                return (int)CardPositions.Hand6;
             case "Hand7":
-                return CardPositions.Hand7;
+                return (int)CardPositions.Hand7;
             case "Play":
-                return CardPositions.Play;
+                return (int)CardPositions.Play;
             case "AttSupport":
-                return CardPositions.AttSupport;
+                return (int)CardPositions.AttSupport;
             case "DefSupport":
-                return CardPositions.DefSupport;
+                return (int)CardPositions.DefSupport;
             case "Trap":
-                return CardPositions.Trap;
+                return (int)CardPositions.Trap;
             case "Spell1":
-                return CardPositions.Spell1;
+                return (int)CardPositions.Spell1;
             case "Spell2":
-                return CardPositions.Spell2;
+                return (int)CardPositions.Spell2;
             case "Spell3":
-                return CardPositions.Spell3;
+                return (int)CardPositions.Spell3;
             case "Spell4":
-                return CardPositions.Spell4;
+                return (int)CardPositions.Spell4;
             case "Spell5":
-                return CardPositions.Spell5;
+                return (int)CardPositions.Spell5;
             case "Graveyard":
-                return CardPositions.Graveyard;
+                return (int)CardPositions.Graveyard;
             default:
-                return CardPositions.Deck;
+                return (int)CardPositions.Deck;
         }
+    }
+
+    public static void SetPosition(GameObject gameObject, string position)
+    {
+        gameObject.transform.position = playerPositions[StringToCardPosition(position)];
+        gameObject.transform.rotation = Quaternion.identity;
+        gameObject.transform.Rotate(playerRotationZ[StringToCardPosition(position)]);
     }
 
     #endregion

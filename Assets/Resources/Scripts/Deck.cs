@@ -49,7 +49,10 @@ public class Deck {
 
     public Card getTopCard()
     {
-        return cards[0];
+        Card topCard;
+        topCard = cards[0];
+        cards.Remove(topCard);
+        return topCard;
     }
 
     #endregion
